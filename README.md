@@ -1,2 +1,2 @@
 # Notes
-Notes and one liners
+Check folders
