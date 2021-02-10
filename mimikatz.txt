@@ -30,4 +30,6 @@ Sidenote: if you want to compile the newest version of Mimikatz for PowerSploitâ
 
 Then transform the resulting powerkatz.dlls to a base64 string using "base64 -w 0 powerkatz.dll" in Linux. You can now replace the $PEBytes32 and $PEBytes64 strings at the bottom of Invoke-Mimikatz.ps1. Empire keeps a separately updated version of Invoke-Mimikatz with a few additional tweaks.
 
+Source: http://www.harmj0y.net/blog/redteaming/mimikatz-and-dcsync-and-extrasids-oh-my/
+
 ------------------------------------------------------------------------------------------------------------------------------------
