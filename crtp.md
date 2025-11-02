@@ -1,6 +1,6 @@
 ## Get all domain computers
 ``Get-DomainComputer | select samaccountname``
-Get-DomainComputer | select dnshostname
+``Get-DomainComputer | select dnshostname``
 
 Get all domain users
 Get-DomainUser | select samaccountname
