@@ -2,7 +2,7 @@
 ```Get-DomainComputer | select samaccountname```
 ```Get-DomainComputer | select dnshostname```
 
-Get all domain users
+## Get all domain users
 Get-DomainUser | select samaccountname
 
 Get domain details
