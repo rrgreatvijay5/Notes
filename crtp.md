@@ -36,5 +36,7 @@ Get-DomainGroupMember -Identity "Enterprise Admins" -Domain moneycorp.local
 Invoke-BloodHound -CollectionMethod All
 ```
 
-Find all computers with local admin access
+## Find all computers with local admin access
+```
 Find-LocalAdminAccess
+```
