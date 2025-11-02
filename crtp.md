@@ -1,6 +1,8 @@
 ## Get all domain computers
 ```
 Get-DomainComputer | select samaccountname
+```
+```
 Get-DomainComputer | select dnshostname
 ```
 
