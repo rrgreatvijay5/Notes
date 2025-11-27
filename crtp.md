@@ -40,3 +40,10 @@ Invoke-BloodHound -CollectionMethod All
 ```
 Find-LocalAdminAccess
 ```
+
+## Check ACLs using PowerView
+```
+Get-DomainObjectAcl -Identity "Domain Admins" -ResolveGUIDs -Verbose
+Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "studentx"}  
+Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "RDPUsers"}
+```
